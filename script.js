@@ -45,7 +45,6 @@ const display = (phones, dataLimit)=>{
   }
   // call container
   const container = document.getElementById('phone-container')
-  container.textContent = ''
 // slice and show product
 const showAll = document.getElementById('show-all')
 
@@ -59,9 +58,11 @@ const showAll = document.getElementById('show-all')
   }
 
   // remove cotainer after slicing
+  container.textContent = ''
 
   phones.forEach(phone => {
 
+    
 
     const div = document.createElement('div')
     div.classList.add('col')
