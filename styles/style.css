@@ -1,0 +1,125 @@
+/*********
+     Fonts 
+**********/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/**********
+Utilities 
+*************/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+}
+.btn:focus{
+    box-shadow: none;
+    
+}
+.btn{
+    letter-spacing: 1px;
+}
+
+
+
+/**************
+    Slider Style 
+************/
+  
+
+section.hero{
+    background: no-repeat url(../images/iphone-12-banner-2.png);
+    background-position: center center;
+    background-size: cover;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.445);
+    
+}
+.hero .row{
+    height: 60vh;
+}
+
+
+.phone-card{
+    background: no-repeat url(../images/bg.jfif);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 40px rgba(46, 46, 46, 0.363);
+    background-color: rgba(27, 27, 27, 0.637);
+    background-blend-mode: overlay;
+    color: whitesmoke;
+    overflow: hidden;
+   
+
+    
+}
+
+.btn{
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+i:hover{
+    cursor: pointer;
+
+}
+
+img {
+    width: 150px;
+    height: 250px;
+    max-width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.flag{
+    height: 155px;
+}
+
+.search-div{
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 2px solid #094665;
+    background: rgba(0, 0, 0, 0.349);
+    padding: 20px;
+    border-radius: 5px;
+}
+input:focus{
+    outline: none!important; 
+    background: transparent!important;
+}
+input:focus-visible {
+    outline: none;
+}
+input{
+    border: none;
+    background: transparent;
+    color: #fff;
+    width: 70%;
+}
+
+input::placeholder{
+    color: rgba(255, 255, 255, 0.774);
+}
+.src-btn{
+    background: transparent;
+    border: none;
+    color:#fff;
+}
+input:-webkit-autofill { 
+    -webkit-background-clip: text;
+}
+
+
+
+@media (min-width: 768px){
+    .search-div{
+        width: 50%;
+    }
+    input{
+        width: 75%;
+    }
+}
