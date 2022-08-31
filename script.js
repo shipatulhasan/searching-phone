@@ -20,36 +20,34 @@ const loadData = async(name,dataLimit) =>{
     display(data.data, dataLimit)
   }
   catch (error){
-
-    
     console.log(error)
   }
 }
 
+// for first loading
+
+spiner(true)
 
 const display = (phones, dataLimit)=>{
 
 
-
-
-  spiner(true)
-
   // validation
 
   if(phones.length === 0 ){
-    document.getElementById('nothing').classList.remove('d-none')
     spiner(false)
+    document.getElementById('nothing').classList.remove('d-none')
   }else{
     document.getElementById('nothing').classList.add('d-none')
 
   }
   // call container
+
   const container = document.getElementById('phone-container')
   container.textContent = ''
   
 
 // slice and show product
-const showAll = document.getElementById('show-all')
+  const showAll = document.getElementById('show-all')
 
   if(dataLimit && phones.length > 10){
 
@@ -64,8 +62,6 @@ const showAll = document.getElementById('show-all')
  
 
   phones.forEach(phone => {
-
-    
 
     const div = document.createElement('div')
     div.classList.add('col')
@@ -98,7 +94,6 @@ const modal = async(id)=>{
 }
 
 const displayDetails = (data)=>{
-  console.log(data)
 
   const details = document.getElementById('phone-details')
   details.innerHTML = `
@@ -109,22 +104,32 @@ const displayDetails = (data)=>{
             <img src="${data.image}" class="mx-auto m-3" alt="...">
             <div class="modal-body">
               <p>MainFeatures:
-                <ul class="">
+                <ul>
                   <li>Display-size: ${data.mainFeatures.displaySize}</li>
                   <li>Storage: ${data.mainFeatures.storage}</li>
                   <li>Chipset: ${data.mainFeatures.chipSet}</li>
                   <li>Memory: ${data.mainFeatures.memory}</li>
-                </ul>
-              </p>
-              <p>Others:
-                <ul class="">
-                  <li>Bluetooth: ${data.others.Bluetooth}</li>
-                  <li>GPS: ${data.others.GPS}</li>
-                  <li>USB: ${data.others.USB}</li>
-                </ul>
+                  </ul>
+                  </p>
+              <p>Sensors: <ul id="sensor" class="text-capitalize"></ul></p> 
+              <p>${data.others ? `Others:<ul>
+                    <li>Bluetooth: ${data.others.Bluetooth }</li>
+                    <li>GPS: ${data.others.GPS }</li>
+                    <li>USB: ${data.others.USB }</li>
+                  </ul>` : ''}
               </p>
             </div>
       `
+// sensor loop 
+      const sensors = data.mainFeatures.sensors
+
+      const ul = document.getElementById('sensor')
+
+      sensors.forEach(sensor =>{
+        const li = document.createElement('li')
+        li.innerText = sensor
+        ul.appendChild(li)
+      })
 
   
 }
@@ -150,6 +155,7 @@ document.getElementById('search-field').addEventListener('keypress',function(e){
 
 
 const searchPhone = (event) =>{
+  // spiner(true)
   event.preventDefault()
   procecing(10)
 }
